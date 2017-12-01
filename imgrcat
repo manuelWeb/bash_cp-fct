@@ -6,20 +6,18 @@ for i in "$@"; do
   if [[ $lastPath == 'HTML' ]]; then
 		files=(~/optz/rCat/content/$i/*)
 		# echo ${#files[@]} # echo array item
-		for j in "${files[@]}"; do
-			DIRECTORY="$(pwd)/src/$i/images/"
-			if [ -d "$DIRECTORY" ]; then
-				echo $DIRECTORY "Exists!"
+		DIRECTORY="$(pwd)/src/$i/images/"
+		echo $DIRECTORY "Exists!"
+		if [ -d "$DIRECTORY" ]; then
+			for j in "${files[@]}"; do
 				file=$j
 				cp $file $DIRECTORY
 				echo "cp $file in $DIRECTORY \n\n"
-				# echo $j
-			else
-				echo "Arghhh...! tu ne te trouve pas dans le dossier HTML"
-				echo $DIRECTORY "Does not exist!\n"
-			fi
-		done
-    # mv ~/optz/rCat/content/$i/insert_* $(pwd)/src/$i/images/
+			done
+		else
+			echo "Arghhh...! tu ne te trouve pas dans le dossier HTML"
+			echo $DIRECTORY "Does not exist!\n"
+		fi
   fi
   # ls $(pwd)/src/$i/images
 done
