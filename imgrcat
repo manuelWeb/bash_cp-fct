@@ -8,14 +8,14 @@ for i in "$@"; do
 		# echo ${#files[@]} # echo array item
 		DIRECTORY="$(pwd)/src/$i/images/"
 		if [ -d "$DIRECTORY" ]; then
-			echo "\n\n" $DIRECTORY "Exists!"
+			echo "\n" $DIRECTORY "Exists!"
 			for j in "${files[@]}"; do
 				file=$j
 				cp $file $DIRECTORY
-				echo "cp $file in $DIRECTORY"
+				echo "copy ${${file}##*/} in src/${lastPath}/images"
 			done
 		else
-			echo "\n\n" $DIRECTORY "Does not exist! : "
+			echo "\n" $DIRECTORY "Does not exist! : "
 			echo "Arghhh...! tu ne te trouves pas dans le dossier HTML"
 		fi
   fi
