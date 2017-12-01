@@ -1,0 +1,5 @@
+#!/bin/zsh
+# open with multiple arg
+for i in "$@"; do
+  cygstart "$i"
+done

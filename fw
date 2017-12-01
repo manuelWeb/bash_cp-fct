@@ -1,0 +1,2 @@
+#!/bin/sh
+C:/Program\ Files\ \(x86\)/Adobe/Adobe\ Fireworks\ CS5.1/Fireworks.exe $1 &

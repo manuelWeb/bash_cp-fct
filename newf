@@ -1,0 +1,24 @@
+#! /bin/bash
+echo "mois:"
+mois=''
+read mois
+echo "$mois/année:"
+annee=''
+read annee
+
+if [ -d "$mois$annee" ];then
+  echo -e "Oups, $mois$annee file EXIST!\n...you almost DESTROYED it."
+  exit 0
+else
+  mkdir $mois$annee
+  cd $mois$annee
+  touch desktop.ini
+  echo "[.ShellClassInfo]" >> desktop.ini
+  # -E disable backslash interpretation
+  echo -E "IconResource=C:\Users\mdevries\Pictures\domoti\favicon\perso\months\\$mois.y$annee.ico,0" >> desktop.ini
+  attrib +s +h desktop.ini
+  cd ../
+  attrib +r $mois$annee
+  echo "$mois$annee was created"
+fi
+

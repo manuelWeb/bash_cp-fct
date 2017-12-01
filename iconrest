@@ -1,0 +1,4 @@
+#!/bin/zsh
+iconrest(){
+  for i in */ */* */*/*;do attrib +S "${i%/}";done
+}
