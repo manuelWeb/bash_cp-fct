@@ -1,11 +1,9 @@
 #!/bin/zsh
 # ls ~/optz/rCat/content/$i
 for i in "$@"; do
-	# get last part of path
-	# echo ${$(pwd)##*/}
+	# get last part of path # echo ${$(pwd)##*/}
 	lastPath=${$(pwd)##*/}
   if [[ $lastPath == 'HTML' ]]; then
-		imgitem=$(ls ~/optz/rCat/content/$i/insert_*)
 		files=(~/optz/rCat/content/$i/*)
 		# echo ${#files[@]} # echo array item
 		for j in "${files[@]}"; do
@@ -14,25 +12,14 @@ for i in "$@"; do
 				echo $DIRECTORY "Exists!"
 				file=$j
 				cp $file $DIRECTORY
-				echo "\n\n"
+				echo "cp $file in $DIRECTORY \n\n"
 				# echo $j
 			else
-				echo $DIRECTORY "Does not exist! \n\n"
+				echo "Arghhh...! tu ne te trouve pas dans le dossier HTML"
+				echo $DIRECTORY "Does not exist!\n"
 			fi
 		done
-		# # echo $imgitem
-		# DIRECTORY="$(pwd)/src/$i/images/"
-		# if [ -d "$DIRECTORY" ]; then
-		# 	echo $DIRECTORY "Exists!"
-		# 	# echo "copie de $imgitem \n\n"
-		# else
-		# 	echo $DIRECTORY "Does not exist! \n\n"
-		# fi
     # mv ~/optz/rCat/content/$i/insert_* $(pwd)/src/$i/images/
-  else
-    echo "Arghhh...! tu ne te trouve pas dans le dossier HTML"
   fi
   # ls $(pwd)/src/$i/images
 done
-    # echo "copie des fichiers : $(ls ~/optz/rCat/content/$i/insert_*)"
-		# echo "vers $(pwd)/src/$i/images/"
