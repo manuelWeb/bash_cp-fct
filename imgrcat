@@ -7,16 +7,16 @@ for i in "$@"; do
 		files=(~/optz/rCat/content/$i/*)
 		# echo ${#files[@]} # echo array item
 		DIRECTORY="$(pwd)/src/$i/images/"
-		echo $DIRECTORY "Exists!"
 		if [ -d "$DIRECTORY" ]; then
+			echo "\n\n" $DIRECTORY "Exists!"
 			for j in "${files[@]}"; do
 				file=$j
 				cp $file $DIRECTORY
-				echo "cp $file in $DIRECTORY \n\n"
+				echo "cp $file in $DIRECTORY"
 			done
 		else
-			echo "Arghhh...! tu ne te trouve pas dans le dossier HTML"
-			echo $DIRECTORY "Does not exist!\n"
+			echo "\n\n" $DIRECTORY "Does not exist! : "
+			echo "Arghhh...! tu ne te trouves pas dans le dossier HTML"
 		fi
   fi
   # ls $(pwd)/src/$i/images
