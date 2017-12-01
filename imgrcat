@@ -11,7 +11,7 @@ for i in "$@"; do
 			echo "\n" $DIRECTORY "Exists!"
 			for j in "${files[@]}"; do
 				file=$j
-				cp $file $DIRECTORY
+				mv $file $DIRECTORY
 				echo "copy ${${file}##*/} in src/${lastPath}/images"
 			done
 		else
