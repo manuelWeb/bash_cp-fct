@@ -1,4 +1,7 @@
 #!/bin/zsh
-iconrest(){
-  for i in */ */* */*/*;do attrib +S "${i%/}";done
-}
+for i in */ */*; do
+  if [ -d "$i" ];then
+    # echo '$(attrib) "${i%/}"' trouver solution pour afficher attrib de $i
+    attrib +S "${i%/}"
+  fi
+done

@@ -1,0 +1,23 @@
+#!/bin/zsh
+for i in "$@"; do
+	# get last part of path # echo ${$(pwd)##*/}
+	lastPath=${$(pwd)##*/}
+  if [[ $lastPath == 'HTML' ]]; then
+		files=(~/optz/cata/$i/*)
+		# echo ${#files[@]} # echo array item
+		DIRECTORY="$(pwd)/src/$i/images/"
+		if [ -d "$DIRECTORY" ]; then
+			echo "\n" $DIRECTORY "Exists!"
+			for j in "${files[@]}"; do
+				file=$j
+				mv $file $DIRECTORY
+				echo "copy ${${file}##*/} in src/${lastPath}/images"
+				# echo "copy ${file} in ${DIRECTORY}"
+			done
+		else
+			echo "\n" $DIRECTORY "Does not exist! : "
+			echo "Arghhh...! tu ne te trouves pas dans le dossier HTML"
+		fi
+  fi
+  # ls $(pwd)/src/$i/images
+done

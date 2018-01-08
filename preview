@@ -1,0 +1,9 @@
+#!/bin/zsh
+var=$(pwd)
+# result=$(find -name 'index.html')
+
+# if [ $result ]; then
+for i in $(find -name 'index.html'); do cygstart $i;done
+
+#   cygstart ${result}
+# fi
