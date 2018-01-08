@@ -5,7 +5,12 @@ for i in "$@"; do
   if [[ $lastPath == 'code' ]] || [[ $lastPath == 'evt' ]] || [[ $lastPath == 'ray' ]]; then
 		files=(~/optz/evnt/$i/*)
 		# echo ${#files[@]} # echo array item
-		DIRECTORY="$(pwd)/evtSrc/$i/"
+		if [[ $lastPath == 'code' ]] || [[ $lastPath == 'evt' ]]; then
+			DIRECTORY="$(pwd)/evtSrc/$i/"
+		fi
+		if [[ $lastPath == 'ray' ]]; then
+			DIRECTORY="$(pwd)/src/$i/"
+		fi
 		if [ -d "$DIRECTORY" ]; then
 			echo "\n" $DIRECTORY "Exists!"
 			for j in "${files[@]}"; do
