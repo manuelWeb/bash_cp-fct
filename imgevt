@@ -1,8 +1,10 @@
 #!/bin/zsh
 for i in "$@"; do
+	echo ~/optz/evnt/$@/*
 	# get last part of path # echo ${$(pwd)##*/}
 	lastPath=${$(pwd)##*/}
-  if [[ $lastPath == 'code' ]] || [[ $lastPath == 'evt' ]] || [[ $lastPath == 'ray' ]]; then
+	echo $lastPath
+  if [[ $lastPath == 'code' ]] || [[ $lastPath == 'code_inter' ]] || [[ $lastPath == 'evt' ]] || [[ $lastPath == 'ray' ]]; then
 		files=(~/optz/evnt/$i/*)
 		# echo ${#files[@]} # echo array item
 		if [[ $lastPath == 'code' ]] || [[ $lastPath == 'evt' ]]; then

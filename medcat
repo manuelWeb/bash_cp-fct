@@ -1,0 +1,38 @@
+#!/bin/zsh
+
+if [[ "$@" != "" ]]; then
+	lastPath=${$(pwd)##*/}
+	# get last part of path # echo ${$(pwd)##*/}
+  if [[ $lastPath == 'medias' ]]; then
+		dirSrc=( ~/optz/cata/$@/ )
+		files=( ~/optz/cata/$@/*.(png|jpg) )
+
+		for j in $files; do
+      if [[ $@ == "FR" ]]; then
+        echo "\e[0;32m move ${j##*/} to $@/ \e[0m"
+        if [ -d ./screen/FR/ ]; then mv $j ./screen/FR/; else mkdir ./screen/FR/ && mv $j ./screen/FR/; fi
+        # mv $j $@
+      elif [[ $@ == "BF" ]]; then
+        echo "\e[0;32m move ${j##*/} to $@/ \e[0m"
+        if [ -d ./screen/BF/ ]; then mv $j ./screen/BF/; else mkdir ./screen/BF/ && mv $j ./screen/BF/; fi
+        # mv $j ./screen/
+        # arg non reconnu alors sort de la boucle
+      elif [[ $@ == "UK" ]]; then
+        echo "\e[0;32m move ${j##*/} to $@/ \e[0m"
+        if [ -d ./screen/UK/ ]; then mv $j ./screen/UK/; else mkdir ./screen/UK/ && mv $j ./screen/UK/; fi
+      else
+        echo -e "\e[31m unknow argument : $@ \e[0m"
+        return
+      fi
+    done
+
+		else
+			echo "\e[31m Arghhh...you're not in the media folder! \e[0m"
+	fi
+
+	else
+		echo "\e[01;31m NO argument : grab destination HD || screen! \e[0m"
+fi
+
+# for i in "$@"; do
+# done

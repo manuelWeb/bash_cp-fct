@@ -2,7 +2,7 @@
 for i in "$@"; do
 	# get last part of path # echo ${$(pwd)##*/}
 	lastPath=${$(pwd)##*/}
-  if [[ $lastPath == 'HTML' ]]; then
+  if [[ $lastPath == 'HTML' ]] || [[ $lastPath == 'pdt' ]]; then
 		files=(~/optz/cata/$i/*)
 		# echo ${#files[@]} # echo array item
 		DIRECTORY="$(pwd)/src/$i/images/"
@@ -16,7 +16,7 @@ for i in "$@"; do
 			done
 		else
 			echo "\n" $DIRECTORY "Does not exist! : "
-			echo "Arghhh...! tu ne te trouves pas dans le dossier HTML"
+			echo "Arghhh...! tu ne te trouves pas dans le dossier HTML ou pdt"
 		fi
   fi
   # ls $(pwd)/src/$i/images
